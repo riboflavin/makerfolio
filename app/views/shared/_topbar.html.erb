@@ -1,0 +1,26 @@
+		<div id="header" class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<ul class="nav pull-left" data-active="<%=@active %>">
+						<li><h3><a href="/"><img src="/images/logo-small.png" id="kitify-navbar-logo"/></a></h3></li>
+<!-- 						<li><a href="http://store.kitify.com" style="color: #95C; font-weight: bold;" target="_blank">Kitify Store</a></li>
+ -->						<li class="<%= ("active" if @active == "about") %>"><a href="/about">About</a></li>
+						<li><a href="/new">Start New Kit</a></li>
+					</ul>
+					<ul class="nav pull-right">
+						<li class="k-header-notice hide"><a class="k-header-notice-text" href="javascript:void(0);"><img src="/images/spinner.gif" id="kitify-ajax-img" style="display: none;"/><span></span></a></li>
+						<% if @user_kits != nil && @user_kits.count > 0 %>         
+						<li class="dropdown" data-dropdown="dropdown">
+							<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">My Kits (<%=@user_kits.count.to_s %>)<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<% @user_kits.each do |kit| %>
+								<li><a href="/<%="#{@user.username}/#{kit.slug}/#{kit.token}" %>"><%=kit.title %></a></li>
+								<% end %>
+							</ul>
+						</li>
+						<% end %>
+						<li class="<%=("active" if @active == "contact") %>"><a href="/contact">Contact Us</a></li>					
+					</ul>
+				</div>
+			</div>
+		</div>

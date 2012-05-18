@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  property: MyString
+  cssproperty: MyString
+  value: MyString
+
+two:
+  property: MyString
+  cssproperty: MyString
+  value: MyString

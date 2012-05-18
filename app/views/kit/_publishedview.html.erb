@@ -1,0 +1,72 @@
+<div id="kit" class="k-kit" data-username="<%=@user.username %>" data-id="<%=@kit.slug %>" data-token="<%=@kit.token %>">
+  
+<!--
+Link to store
+-->
+
+<% if @kit.published == 'published'%>
+<a target="_blank" href="<%=@kit.ref %>" class="btn btn-large btn-vlarge btn-purple span2" tabindex="0" role="button" id="buy-kit-button"><span style="font-size: 26px;">Buy this kit</span><br/><span style="font-size: 12px; font-weight: normal; line-height: 14px;">at the Kitify Store</span></a>
+<% end %>
+
+<!--
+Kit price, shipping, and information
+-->
+
+<div id="kit-buy-info">
+    <p class="k-kit-title-display" id="title"><%=@kit.title %></p>
+    <p id="title"><%=@kit.description %></p>
+    <p class="k-kit-byline-display">by <%=@kit.author%></p>
+    
+<div id="kit-img-display">
+  <% @attachments.each do |a| %>
+        <div data-id="<%= a.id %>" data_url="<%= a.url %>" class="kit-img-container cursor-pointer">
+        <img class="kit-img" src="<%= a.thumb_url %>"></img>
+        </div>  
+  <% end %>
+ </div>
+ </div>
+
+  <h2>Materials</h2>
+	<table id="kit-items" class="table k-kit-items-fixed <%= 'hasoptionals' if @hasoptionals %>">
+		<thead>
+			<tr>
+        <th class="k-kit-items-image"></th>
+				<th class="k-kit-items-name">Item Name</th>
+				<th class="k-kit-items-quantity">Quantity</th>
+        <th class="k-kit-items-notes">Notes</th>
+      </tr>
+		</thead>
+		<tbody>
+			<tr><td colspan="4">Getting items...</td></tr>
+		</tbody>
+	</table>
+
+  <h2 style="margin-bottom: 16px;">Instructions</h2>
+
+
+  <% if @kit.khost == true %>
+  <table id="step-div" class="table k-kit-steps-fixed">
+    <tbody>
+      <tr><td>Getting steps...</td></tr>
+    </tbody>
+  </table>
+
+  <% else %>
+  <h4>Instructions for this kit are hosted at <a href="<%= @kit.instructions %>"><%= @kit.instructions %></a>.</h4>
+
+  <% end %>
+
+<div class="modal-backdrop hide fade in"></div>
+<div id="kit-image-modal" class="modal hide fade in">
+      <div class="modal-header">
+              <a href="#" class="close" data-dismiss="modal">×</a>
+              <h3>Image</h3>
+      </div>
+      <div class="modal-body">
+              <img id="modal-image"/>
+      </div>
+      <div class="modal-footer">
+      </div>
+</div>
+  
+</div>

@@ -1,0 +1,68 @@
+
+h1 {color: #444 ;font-size:30px;text-shadow:0 0 4px rgba(200, 200, 200, 0.6);}
+
+#content-inner { background-color:#505050;color:#fafafa;border:1px solid #111;border-radius:16px; }
+
+.kit-feature {height: 360px; width: 660px; margin: 10px; margin-top: 0px; padding: 10px; text-align: center; background-color: white; opacity: 1; position: absolute;}
+
+.kit-feature h1 {font-size: 38px; margin-bottom: 12px;}
+.sl-interior {background-color: whitesmoke; border: 1px solid #DDD; padding: 15px; height: 90%;}
+.sl-interior p {text-align: left; font-size: 24px; line-height: 30px; width: 600px; padding: 10px; padding-top: 20px; margin-left: 10px;}
+.sl-interior img {float: left; border-radius: 6px; border: 1px solid purple; height: 240px; width: 240px; padding: 2px; margin: 20px; margin-bottom: 60px;}
+.sl-interior .btn {position: absolute; right: 60px; bottom: 40px; font-size: 16px;}
+
+#try-it-now {float: right; margin: 14px 26px 0px 0px;}
+
+.btn-purple {
+  border: none;
+  background-repeat: repeat-x;
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)", #900aff, #540099));
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#900aff), to(#540099));
+  background-image: -moz-linear-gradient(top, #900aff, #540099);
+  background-image: -ms-linear-gradient(top, #900aff, #540099);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #900aff), color-stop(100%, #540099));
+  background-image: -webkit-linear-gradient(top, #900aff, #540099);
+  background-image: -o-linear-gradient(top, #900aff, #540099);
+  background-image: linear-gradient(#900aff, #540099);
+  background-color: #540099 !important;
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.36);
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-vlarge
+{
+  padding: 10px 24px;
+  font-size: 18px;
+}
+
+.carousel-control
+{left: 90px; top: 55%; cursor: pointer;}
+
+.carousel-control.right
+{right: 75px; top: 55%;}
+
+#pager
+{
+  width: 70px; margin-left: auto; margin-right: auto;
+  padding: 10px;
+  background-color: whitesmoke;
+  margin-top: 20px;
+}
+
+#pager a
+{
+padding: 5px;
+font-weight: bold;
+text-decoration: none;
+}
+
+.activeSlide
+{
+color: purple;
+}
+
+#slide-container
+{
+  width: 700px; margin-left: auto; margin-right: auto;
+}

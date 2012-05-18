@@ -1,0 +1,543 @@
+<div id="kit" class="k-kit editable" data-username="<%=@user.username %>" data-id="<%=@kit.slug %>" data-token="<%=@kit.token %>">
+          
+<!-- 
+Published warning
+
+ -->
+
+<div class="alert alert-block alert-warning hide" id="kit-pub-warn">
+  <p>Thanks for setting up a kit with Kitify! <strong>This kit is being sold or we're currently reviewing it for sale.</strong> To make any changes you'll need to cancel sales (you can do this on the "sell" tab) and then submit it again.</p>
+</div>
+
+ <!--
+Kit Navigation
+-->
+
+        <div id="k-kit-nav">
+          <ul style="border: 1px solid #DDD; border-radius: 4px; padding-top: 8px; padding-bottom: 8px; list-style: none; margin-left: 0px">
+            <li><a href="javascript:void(0);" data-section="about">1) Kit Setup</a></li>
+            <li><a href="javascript:void(0);" data-section="items">2) Materials</a></li>
+            <li><a href="javascript:void(0);" data-section="instructions">3) Instructions</a></li>
+            <li><a href="javascript:void(0);" data-section="customize">4) Appearance</a></li>
+            <li><a href="javascript:void(0);" data-section="share">5) Publish and Share</a></li>
+            <li><a style="color: #C0C; font-weight: bold;" href="javascript:void(0);" data-section="sell">6) Sell!</a></li>
+          </ul>
+        </div>
+
+<% unless (@kit.published == 'published' || @kit.published == 'waiting') %>
+<!--
+Welcome
+-->
+
+<div class="alert alert-block alert-info" style="margin-top: 20px;"><a href="#" data-dismiss="alert" class="close">×</a>
+<strong>Thanks for using Kitify!</strong> You don't need an account - but you will need the address of this page if you want to edit this kit later. We'll email you a link if you give us your email address, or you can bookmark it.
+</div>
+
+<% end %>
+
+<!--
+About This Kit
+-->
+
+<table id="k-kit-about" class="k-kit-section condensed-table table">
+          <thead>
+          <th><h5 style="margin-top: 6px;" class="pull-left">Kit Setup</h5>         
+          </th>
+          </thead>        
+          <tbody>            
+
+  <tr><td>
+<form class="form-horizontal">
+
+<div class="control-group">
+  <label class="control-label" for="kit-title">Kit Title</label>
+  <div class="controls">
+  <input type="text" id="kit-title" name="kit-title" value="<%=@kit.title %>" class="span4 k-param-input"/>
+  <span class="help-inline"><i class="icon-exclamation-sign"></i> Changing this will change the kit's web address, too</span>
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label" for="kit-author">By</label>
+  <div class="controls">
+  <input type="text" id="kit-author" name="kit-author" value="<%=@kit.author %>" class="span4 k-param-input"/>
+  <span class="help-inline">Your name as you'd like it to appear in the byline</span>
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label" for="kit-contact">Contact</label>
+  <div class="controls">
+  <input type="text" id="kit-contact" name="kit-contact" value="<%=@kit.contact %>" class="span4 k-param-input" data-original-title="How we can contact you. Never shared!" />
+  <span class="help-inline">How can we contact you? We'll never share this!</span>
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label" for="kit-description">Description</label>
+  <div class="controls">
+  <textarea id="kit-description" name="kit-description" class="span6 k-param-input" length="200" rows="2"><%= @kit.description %></textarea>
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label" for="">
+  Kit Images
+  </label>
+  <div class="controls" id="kit-img-div">
+      <div data-ftype="kit" class="kit-img-container kit-img-empty pull-left fileupload">
+      </div>
+      <div data-ftype="kit" class="kit-img-container kit-img-empty pull-left fileupload">
+      </div>
+      <div data-ftype="kit" class="kit-img-container kit-img-empty pull-left fileupload">
+      </div>
+      <div data-ftype="kit" class="kit-img-container kit-img-empty pull-left fileupload">
+      </div>
+      <div data-ftype="kit" class="kit-img-container kit-img-empty pull-left fileupload">
+      </div>
+  </div>
+</div>
+  
+<div class="control-group">
+  </div>
+
+<div class="control-group">
+  <label class="control-label" for="kit-description">Delete Kit</label>
+  <div class="controls">
+    <a id="kit-delete-btn" class="btn btn-danger btn-small" href="javascript:void(0)">Delete this kit</a>
+  </div>
+</div>
+
+</form>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<!--
+Kit Instructions
+-->
+
+<table id="k-kit-instructions" class="k-kit-section condensed-table table">
+          <thead>
+          <th><h5>Instructions</h5></th>
+          </thead>        
+
+<tbody>            
+
+<tr><td>
+<form class="form-horizontal">
+
+<div class="control-group">
+    <label class="control-label"></label>
+    <div class="controls" id="k-host-radio-parent" data-status="<%= kit.khost %>" >
+      <label class="radio">
+        <input type="radio" name="host" id="ownhost" value="ownhost">
+        I'm hosting my own instructions.
+      </label>
+      <label class="radio">
+        <input type="radio" name="host" id="khost" value="khost">
+        I'd like to add instructions using Kitify.
+      </label>
+    </div>
+</div>
+
+<div class="control-group" id="kit-instructions-location">
+  <label class="control-label" for="kit-instructions">Web address</label>
+  <div class="controls">
+  <input type="text" id="kit-instructions" name="kit-instructions" value="<%=@kit.instructions %>" class="span5 k-param-input" data-original-title="Where build instructions are hosted" placeholder="www.example.com" required/>
+  </div>
+</div>
+
+<!-- pressing enter will submit a form with only one field in it; this overrides
+ --><input type="text" name="bug-hidden" style="display: none;"/>
+
+</form>
+
+<!--
+Kit Instructions Non-Hosted
+-->
+
+<div class="right-side-container" id="kit-instructions-container">
+      
+      <form class="form-horizontal" id="newstep" style="position: relative;">          
+
+      <a id="kit-add-step-btn" href="javascript:void(0)" class="btn btn-small">add step</a>
+
+      <div class="control-group">
+        <input id="newstep-title" type="text" class="k-field span6" placeholder="Step Title" required/>
+      </div>
+
+      <div id="instructions-additional">
+
+      <div class="control-group" id="optional-step-group">
+      <label class="checkbox" id="newstep-optional-span">Optional?
+      <input type="checkbox" id="newstep-optional" data-original-title="Is this step optional?"></input>
+      </label>
+      </div>
+
+      <div class="control-group">
+      <textarea id="newstep-instructions" class="span6 k-param-input pull-left" length="1000" rows="5" placeholder="For this step..."></textarea>
+      <div data-ftype="step" class="kit-img-container kit-img-empty pull-left fileupload" id="step-img-upload"></div>
+      </div>
+
+      </div>
+      </form>
+
+      <form class="form-vertical" id="step-div" style="position: relative;">          
+
+      <a id="kit-reorder-btn" href="javascript:void(0)" class="btn btn-small">reorder</a>
+      <div id="kit-reorder-ctrls">
+      <a id="kit-reorder-save-btn" href="javascript:void(0)" class="btn btn-small btn-success">save</a>
+      <a id="kit-reorder-cancel-btn" href="javascript:void(0)" class="btn btn-small btn-danger">cancel</a>
+      </div>
+      
+      <div class="control-group" id="kit-step-parent">
+      <table id="kit-steps" class="k-kit-steps bordered-table zebra-striped table">
+      <tbody></tbody>
+      </table>
+      </div>
+
+      </form>
+      
+</div>
+
+</td></tr>
+
+</tbody>
+</table>
+
+<!--
+Kit Items
+-->
+
+	<table id="k-kit-items" class="k-kit-section condensed-table table">
+		<thead>
+			<tr>
+        <th><h5>Materials</h5></th>
+			</tr>
+		</thead>
+		<tbody>
+    <tr>
+      <td>
+      
+      <div class="right-side-container">
+        <form class="form-inline pull-left" id="newitem-add" style="position: relative;">          
+
+          <a id="kit-add-item-btn" href="javascript:void(0)" class="btn btn-small">add item</a>
+
+          <div class="control-group">
+          <input id="newitem-name" type="text" class="k-field span4" placeholder="Item Name"  required />
+          <input id="newitem-quantity" class="k-field span1" placeholder="1" required />
+          <input id="newitem-unittype" type="text" class="k-field span1" value="" placeholder="Unit" data-original-title="e.g. yards, units (or leave blank)" />
+          <label class="checkbox inline" id="newitem-optional-span">
+              <input type="checkbox" id="newitem-optional" data-original-title="Is this item optional?" value="">Optional item?
+          </label>
+          </div>
+
+          <div class="control-group">
+          <input id="newitem-merchanturl" class="k-field span5" placeholder="Example web address" data-original-title="Link to an example of what to buy"/>
+          <span class="add-on"><a href="http://www.google.com/shopping" target="_blank"><i class="icon-search cursor-pointer"></i></a></span>
+          </div>
+
+          <div class="control-group">               
+          <input id="newitem-notes" type="text" class="k-field span5" placeholder="Notes" />
+          </div>
+
+        </form>
+        <div data-ftype="item" class="kit-img-container kit-img-empty pull-left fileupload" id="item-img-upload"></div>
+
+
+          <table id="kit-items" class="k-kit-items bordered-table zebra-striped table">
+    <thead>
+      <tr>
+        <th class="k-kit-items-col-name">Item Name</th>
+        <th class="k-kit-items-col-image">Image</th>
+        <th class="k-kit-items-col-quantity">Quantity</th>
+<th class="k-kit-items-col-link">Web Address</th>
+<!-- <th class="k-kit-items-col-heavy">Heavy</th>  -->
+<th class="k-kit-items-col-optional">Optional</th>
+<th class="k-kit-items-col-notes">Notes</th>
+<th class="k-kit-items-col-controls"></th>
+                        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+      </td>
+    </tr>
+                      
+    
+    </tbody>
+	</table>
+
+<!-- 
+Kit Customizations
+-->
+
+<!--
+About This Kit
+-->
+
+
+<table id="k-kit-customize" class="k-kit-section condensed-table table">
+          <thead>
+          <th><h5>Display</h5></th>
+          </thead>        
+
+          <tbody>            
+
+  <tr><td>
+<form class="form-horizontal">
+
+<div class="control-group">
+  <label class="control-label">Color Scheme Base</label>
+  <div class="controls">
+    <div class="swatch" id="k-swatch-scheme">
+    </div>
+    <div class="customize-controls color-slider">
+    </div>
+  </div>
+</div>
+
+
+<div class="control-group">
+  <label class="control-label">App Background</label>
+  <div class="controls">
+    <div class="swatch" id="k-swatch-app-bg">
+    </div>
+    <div class="customize-controls color-swatches picture-chooser default-chooser">
+      <div data-ftype="customization" class="kit-img-container-mini kit-img-empty pull-left fileupload">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label">Kit Background</label>
+  <div class="controls">
+    <div class="swatch" id="k-swatch-kit-bg">
+    </div>
+    <div class="customize-controls color-swatches picture-chooser default-chooser">
+      <div data-ftype="customization" class="kit-img-container-mini kit-img-empty pull-left fileupload">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label">Title</label>
+  <div class="controls">
+    <div class="swatch" id="k-swatch-title">
+    <span class="swatch_letter">A</span>
+    </div>
+    <div class="customize-controls color-swatches default-chooser font-chooser">
+    </div>
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label">Table Headers</label>
+  <div class="controls">
+    <div class="swatch" id="k-swatch-table-headers">
+    </div>
+    <div class="customize-controls color-swatches default-chooser">
+    </div>
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label">Table Items</label>
+  <div class="controls">
+    <div class="swatch" id="k-swatch-table-items">
+    </div>
+    <div class="customize-controls color-swatches default-chooser">
+    </div>
+  </div>
+</div>
+
+</form>
+
+    <table id="cust_preview_container" class="table bordered-table table-bordered">
+    <thead><th>Preview</th></thead>
+    <tbody><tr><td class="p-swatch-app-bg">
+
+    <div class="p-swatch-kit-bg k-shadow-big">
+    <span class="p-swatch-title">Kit Title</span>
+    <table class="table bordered-table table-striped table-bordered">
+      <thead>
+        <tr><th class="p-swatch-table-headers">Items</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="p-swatch-table-items">Item 1</td></tr>
+        <tr><td class="p-swatch-table-items">Item 2</td></tr>
+      </tbody>
+    </table>
+    </td></tr></tbody></table>
+    </div>
+
+    </tbody>
+    </table>
+
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<!-- 
+Publish and Share
+-->
+
+<table id="k-kit-share" class="k-kit-section condensed-table table">
+          <thead>
+          <th>Publish and Share</th>
+          </thead> 
+                 
+          <tbody>  
+
+          <tr><td>
+<form class="form-horizontal">
+
+          <div class="control-group">
+            <label class="control-label">Share this link!</label>
+            <div class="controls">
+              <div class="alert alert-info span6" style="margin-bottom: 0px;"><a href="<%= request.url.sub(@kit.token,'') %>" target="_blank"><%= request.url.sub(@kit.token,'') %></a><br/>(You can click this link to see what your published kit looks like; it'll open in a new window.)</div>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Embed code</label>
+            <div class="controls">
+            <textarea class="span6 disabled"><iframe src='<%=request.url.sub(@kit.token,'e?=y')%>' style='width: 100%;'></iframe></textarea><br/>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Tweet your project!</label>
+            <div class="controls">
+            <a href="https://twitter.com/share" 
+               class="twitter-share-button" 
+               data-text="Check out my project, <%= @kit.title %>, on Kitify! <%= request.url.sub(@kit.token,'') %> @getkitify" data-related="@getkitify" 
+               data-size="large" 
+               data-url="<%= request.url.sub(@kit.token,'') %>"
+               >Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
+          </div>
+</form>
+
+          </td></tr>  
+          </tbody>
+</table>
+
+<!--
+Sell with Kitify
+-->
+<div id="k-kit-sell" class="k-kit-section well" style="border: none;">
+  <div id="k-kit-notselling-text">
+  <p><strong>Kitify can put together a kit with all the stuff that's necessary to build this project, and sell it for you.</strong></p>
+  <ul>
+  <li>Customers get a box containing the instructions and all the parts. Kitify will take care of the sourcing, boxing, shipping, and tracking - all you have to do is tell us what to buy, and where to get it.</li>
+  <li>It's free! Every time someone buys a kit, we'll give you a percentage of what we make on the sale. (This is often around 10%).</li>
+  <li><b>You can stop selling your kit at any time.</b> If you get really popular, we offer <a href="/consulting">consulting services</a> to help you set up a successful crowdfunding project so you can turn your kit into a business.</li>
+  </ul>
+
+  <p>Sound interesting? Check out our <a id="guidelines_show" href="javascript:void(0)">guidelines</a> to find out what kits we can sell, and then click "Sell your kit with Kitify" below. We'll get back to you quickly (using the contact address you provided us on "About This Kit") to get you started.</p>
+  </div>
+
+  <div id="k-kit-selling-text">
+  <p><strong>We're currently selling this kit for you.</strong></p>
+  </div>  
+  <a id="kit-pub-btn" href="javascript:void(0)" class="btn btn-success" data-status="<%=@kit.published %>">Sell this kit with Kitify</a>
+</div>
+
+<!--
+Guidelines Modal
+-->
+
+<div class="modal-backdrop hide fade in"></div>
+<div id="guidelines-modal" class="modal hide fade">
+      <div class="modal-header">
+              <a href="#" class="close" data-dismiss="modal">×</a>
+              <h3>Kit selling guidelines</h3>
+      </div>
+      <div class="modal-body">
+              <p>In general, Kitify can only sell kits that meet the following requirements:</p>
+              <ul>
+              <li>All parts must be shippable, non-perishable, and easy to source</li>
+              <li>All parts must be inexpensive to ship, relative to their price</li>
+              <li>Parts must have a minimum total retail value of $50</li>
+              </ul> 
+              <p>Questions? <a href="/contact">Contact us</a>. We may occasionally be able to make exceptions or suggest ways to change your kit so that we can sell it.</p>
+              <p>Please note that Kitify also reserves the right not to sell a kit for any reason, or for no reason. We'll let you know if we decide not to sell your kit.</p>
+      </div>
+</div>
+
+<!--
+Delete Modal
+-->
+
+<div class="modal-backdrop hide fade in"></div>
+<div id="delete-modal" class="modal hide fade">
+      <div class="modal-header">
+              <a href="#" class="close" data-dismiss="modal">×</a>
+              <h3>Are you sure?</h3>
+      </div>
+      <div class="modal-body">
+              <p>Are you sure? Deleting this kit will permanently and immediately remove it from our servers.</p>
+              <ul>
+              <li>Any embedding will turn up a blank page</li>
+              <li>If we're selling your kit, no new sales will be made (though we'll fulfill existing orders)</li>
+              <li>You won't be able to edit or change this kit again</li>
+              </ul>
+              <p class="unpub_suggestion hide">You might want to consider just canceling sales for now, which will allow you to edit your kit later if you want.</p> 
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn btn-danger" id="del_confirm">Delete</a>
+        <a href="#" id="unpub_insteadof_delete_btn" class="btn unpub_suggestion hide">Cancel sales</a>
+        <a href="#" id="cancel_deletion" class="btn">Cancel</a>
+      </div>
+</div>
+
+<!--
+Post-delete modal
+-->
+
+<div class="modal-backdrop hide fade in"></div>
+<div id="post-delete-modal" class="modal hide fade in">
+      <div class="modal-header">
+              <a href="#" class="close" data-dismiss="modal">×</a>
+              <h3>Kit Deleted</h3>
+      </div>
+      <div class="modal-body">
+              <p>OK, we deleted your kit.</p>
+      </div>
+      <div class="modal-footer">
+        <a href="/new" class="btn btn-success">Start a new kit</a>
+        <a href="/" class="btn">Homepage</a>
+      </div>
+</div>
+
+<!--
+Zoom Modal
+-->
+
+<div class="modal-backdrop hide fade in"></div>
+<div id="kit-image-modal" class="modal hide fade in">
+      <div class="modal-header">
+              <a href="#" class="close" data-dismiss="modal">×</a>
+              <h3>Image</h3>
+      </div>
+      <div class="modal-body">
+              <img id="modal-image"/>
+      </div>
+      <div class="modal-footer">
+      </div>
+</div>
+
+</div>
+</div>

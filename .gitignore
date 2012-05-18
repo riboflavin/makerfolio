@@ -1,0 +1,12 @@
+*.DS_Store
+*.log
+*.env
+bugs
+
+kitify.sublime-project
+kitify.sublime-workspace
+log/development.log
+/tmp/
+tmp 
+config/heroku_vars.yml
+config/local_vars.rb

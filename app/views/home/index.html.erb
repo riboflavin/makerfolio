@@ -1,0 +1,72 @@
+<% content_for :css do %>
+	<%= include_stylesheets :all, :home, :media => "all" %>
+<% end %>
+
+<div id="main-container" style="min-height: 550px;">
+<h1 style="padding: 30px; margin-top: 34px; margin-bottom: 36px; background-color: whitesmoke;">Kitify makes it easy (and fun!) to document, share and sell kits for your do-it-yourself projects.<a id="try-it-now" class="btn btn-purple btn-large btn-vlarge" href="/new">Try it now!</a></h1>
+
+<a class="left carousel-control" id="c-left">‹</a>
+<a class="right carousel-control" id="c-right">›</a>
+
+<div id="slide-container" class="hide">
+      
+      <div class="k-corner-all k-shadow kit-feature">
+      <div class="sl-interior">
+      <h1>Document</h1>
+      <img src="/images/f-document.png">
+      <p>Add and edit photos, step-by-step instructions, and materials lists quickly and easily. Update your project at any time.</p>
+      <a class="btn btn-purple btn-large" href="/new">Get started ></a>
+      </div>
+      </div>
+
+      <div class="k-corner-all k-shadow kit-feature">
+      <div class="sl-interior">
+      <h1>Present</h1>
+      <img src="/images/f-present.png">
+      <p>Customize fonts, colors and images so your instructions look just the way you want them to.</p>
+      <a class="btn btn-purple btn-large" href="/new">Get started ></a>
+      </div>
+      </div>
+
+      <div class="k-corner-all k-shadow kit-feature">
+      <div class="sl-interior">
+      <h1>Publish</h1>
+      <img src="/images/f-share.png">
+      <p>We'll host your project in a great-looking, easy-to-read format that you can embed on your blog or share using a link.</p>
+      <a class="btn btn-purple btn-large" href="/new">Get started ></a>
+      </div>
+      </div>
+          
+      <div class="k-corner-all k-shadow kit-feature">
+      <div class="sl-interior">
+      <h1>Sell</h1>
+      <img src="/images/f-sell.png">
+      <p>And we'll even sell a kit for you! Kitify takes care of the sourcing, packing, shipping and tracking. We pay you when your kit sells.</p>
+      <a class="btn btn-purple btn-large" href="/new">Get started ></a>
+      </div>
+      </div>
+
+</div>
+
+<div id="pager" class="k-corner-all k-shadow hide"></div>
+
+</div>
+
+
+<% content_for :js do %>
+	<%= include_javascripts :all, :home %>
+<script>
+$(document).ready(function() {
+      $('#slide-container').removeClass('hide');
+      $('#pager').removeClass('hide');
+
+      $('#slide-container').cycle({fx: 'shuffle', speed: '750', delay: -3500, timeout: 15000, next: '#c-right', prev: '#c-left', pager: '#pager',
+
+       // callback fn that creates a thumbnail to use as pager anchor 
+       pagerAnchorBuilder: function(idx, slide) { 
+       return '<a href="#">&#9679;</a>'; 
+       } 
+      });      
+});
+</script>
+<% end %>

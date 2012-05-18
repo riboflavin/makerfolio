@@ -1,0 +1,19 @@
+<% content_for :css do %>
+	<%= include_stylesheets :all, :media => "all" %>
+<% end %>
+
+<div id="container">
+  <div id="content" class="container">
+    <div id="content-inner" class="k-shadow-big">
+
+<div id="kit" style="height: 400px;">
+	<h2>Sorry, we couldn't find this kit.</h2>
+</div>
+      
+    </div>
+  </div>
+</div>
+
+<% content_for :js do %>
+	<%= include_javascripts :all, :kit %>
+<% end %>
