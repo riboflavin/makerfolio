@@ -1,5 +1,8 @@
-class Attachment < ActiveRecord::Base
-  belongs_to :attachable, :polymorphic => true
+class Attachment  
+  include Mongoid::Document
+
+  embedded_in :attachable, :polymorphic => true
+
   attr_accessible :file, :attachable_id, :attachable_type
   mount_uploader :file, FileUploader 
 

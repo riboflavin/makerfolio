@@ -6,13 +6,11 @@
 	<%= csrf_meta_tag %>
 </head>
 <body>
-<% unless @topbar_v == 'hide' %>
 <%= render :partial => "/shared/topbar", :locals => { :active => @active, :user => @user, :kit => @kit, :user_kits => @user_kits } %>
 <% end %>
  
     <%= yield %>
 
-<% unless @bottombar_v == 'hide' %>
 <%= render :partial => "shared/bottombar" %>
 <% end %>
 

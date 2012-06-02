@@ -11,6 +11,10 @@ javascripts:
         - public/javascripts/vendor/mustache.js
         - public/javascripts/vendor/bootstrap.js
         - public/javascripts/vendor/tinycolor-min.js
+        - public/javascripts/vendor/backbone-min.js
+        - public/javascripts/vendor/underscore-min.js
+        - public/javascripts/vendor/json2.js
+        - public/javascripts/vendor/placeholder.js
         - public/javascripts/k-core.js
         - public/javascripts/k-util.js
         - public/javascripts/k-data.js
@@ -19,6 +23,7 @@ javascripts:
         - public/javascripts/k-message.js
         - public/javascripts/k-validation.js
         - public/javascripts/k-form.js
+        - public/javascripts/views/**/**/*.jst    
     
     kit:
         - public/javascripts/components/k-kit-steps.js
@@ -36,12 +41,8 @@ javascripts:
         - public/javascripts/components/k-kit-customize.js
         - public/javascripts/components/k-kit-nav.js
 
-    browse:
-        - public/javascripts/components/k-browse.js
-
     home:
         - public/javascripts/components/k-front.js
-        - public/javascripts/vendor/jquery.cycle.all.js
 
 stylesheets:
     all:

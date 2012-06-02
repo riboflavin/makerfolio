@@ -8,7 +8,10 @@ gem "carrierwave"
 gem "excon", '~>0.9.2'
 gem "fog", '~>1.1.2'
 gem "sendgrid"
-gem "mysql2", "< 0.3"
+gem "devise"
+gem "mongoid", "2.2.6"
+gem "bson_ext", "1.6.1"
+gem "haml"
 
 group :development do
   gem "heroku"
