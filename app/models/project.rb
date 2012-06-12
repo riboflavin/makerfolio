@@ -1,7 +1,11 @@
 class Project 
   include Mongoid::Document
+  include Mongoid::Timestamps
 
-  embedded_in :users
+  field :name
+  field :description
+
+  embedded_in :user
   embeds_many :attachments, :as => :attachable
 
   def generate_slug 

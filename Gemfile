@@ -12,6 +12,7 @@ gem "devise"
 gem "mongoid", "2.2.6"
 gem "bson_ext", "1.6.1"
 gem "haml"
+gem "sass"
 
 group :development do
   gem "heroku"

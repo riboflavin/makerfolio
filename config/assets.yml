@@ -1,5 +1,5 @@
-package_assets: on
-compress_assets: on
+package_assets: off
+compress_assets: off
 
 javascripts:
     all:
@@ -11,53 +11,32 @@ javascripts:
         - public/javascripts/vendor/mustache.js
         - public/javascripts/vendor/bootstrap.js
         - public/javascripts/vendor/tinycolor-min.js
-        - public/javascripts/vendor/backbone-min.js
         - public/javascripts/vendor/underscore-min.js
         - public/javascripts/vendor/json2.js
         - public/javascripts/vendor/placeholder.js
-        - public/javascripts/k-core.js
-        - public/javascripts/k-util.js
-        - public/javascripts/k-data.js
-        - public/javascripts/k-manager.js
-        - public/javascripts/k-component.js
-        - public/javascripts/k-message.js
-        - public/javascripts/k-validation.js
-        - public/javascripts/k-form.js
+        - public/javascripts/vendor/backbone-min.js
+
+        - public/javascripts/application.js
+        - public/javascripts/models/*.js    
+        - public/javascripts/collections/*.js    
+        - public/javascripts/controllers/*.js    
+        - public/javascripts/views/**/**/*.js
         - public/javascripts/views/**/**/*.jst    
     
-    kit:
-        - public/javascripts/components/k-kit-steps.js
-        - public/javascripts/components/k-kit-newstep.js
-        - public/javascripts/components/k-kit-editstep.js
-        - public/javascripts/components/k-kit-reorderstep.js
-        - public/javascripts/components/k-kit-instructions-host.js
-        - public/javascripts/components/k-kit-items.js
-        - public/javascripts/components/k-kit-newitem.js
-        - public/javascripts/components/k-kit-edititem.js
-        - public/javascripts/components/k-kit-optionals.js
-        - public/javascripts/components/k-kit-publish.js
-        - public/javascripts/components/k-kit-params.js
-        - public/javascripts/components/k-kit-image.js
-        - public/javascripts/components/k-kit-customize.js
-        - public/javascripts/components/k-kit-nav.js
-
     home:
-        - public/javascripts/components/k-front.js
+        - public/javascripts/components/f-front.js
 
 stylesheets:
     all:
         - public/stylesheets/vendor/bootstrap.min.css
         - public/stylesheets/vendor/jquery-ui.css
         - public/stylesheets/vendor/jquery-fileupload-ui.css
-        - public/stylesheets/k-core.css
-        - public/stylesheets/k-layout.css
-        - public/stylesheets/k-typography.css
+        - public/stylesheets/f-core.css
+        - public/stylesheets/f-util.css
+        - public/stylesheets/f-styles.css
+        - public/stylesheets/f-layout.css
+        - public/stylesheets/views/f-project.css
+        - public/stylesheets/views/f-user.css
         
     home:
-        - public/stylesheets/k-home.css
-        
-    kit:
-        - public/stylesheets/k-kit.css
-    
-    browse:
-        - public/stylesheets/k-kit.css
+        - public/stylesheets/f-home.css

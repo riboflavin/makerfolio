@@ -7,7 +7,17 @@ before_filter :authenticate_user!
   end
 
   def index
-    render :json => Project.find(params[:project])
+    @user = User.where(:username => params[:username]).first()
+    if @user
+      @projects = @user.projects.all
+    end
+
+    case params[:format]
+    when 'json'
+      render :json => @projects
+    else
+      render 'index'
+    end
   end
     
   def update

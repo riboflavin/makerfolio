@@ -1,4 +1,4 @@
-App.Collections.Documents = Backbone.Collection.extend({
+App.Collections.Projects = Backbone.Collection.extend({
     model: Project,
     url: '/projects'
 });

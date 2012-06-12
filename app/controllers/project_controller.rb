@@ -1,19 +1,20 @@
-class DocumentsController < ApplicationController
+class ProjectController < ApplicationController
+before_filter :authenticate_user!
+
   def index
-    render :json => Project.all
+    render :json => Project.all(:user => :username)
   end
   
   def show
-    render :json => Project.find(params[:id])
+    render :json => current_user.Project.find(params[:id])
   end
   
   def create
-    document = Project.create! params
-    render :json => document
+    render :json => Project.new(:user => current_user)
   end
   
   def update
-    document = Project.find(params[:id])
+    document = current_user.Project.find(params[:id])
     document.update_attributes! params
     render :json => document
   end

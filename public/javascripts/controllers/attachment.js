@@ -1,4 +1,4 @@
-App.Controllers.Documents = Backbone.Controller.extend({
+App.Controllers.Attachments = Backbone.Controller.extend({
     routes: {
         "documents/:id":            "edit",
         "":                         "index",
