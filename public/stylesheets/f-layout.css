@@ -1,35 +1,11 @@
-/* Messages */
-.k-message {
-  position: fixed;
-  top: 40px;
-  right: 0;
-  left: 0;
-  width: 640px;
-  margin: 0 auto;
-  z-index: 2; }
+#app {
+  margin-top: 70px;
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto; }
 
-.k-message .alert-message {
-  margin-bottom: 0;
-  border-radius: 0;
-  z-index: 9999; }
-
-/* Bootstrap Overrides */
-#kitify-navbar-logo {
-  margin-top: 3px; }
-
-html {
-  height: 100%;
-  background: #777777 url(../images/graphy.png); }
-
-body {
-  background-color: transparent; }
-
-#header .container {
-  position: relative; }
-
-#content {
-  margin-top: 60px;
-  background-color: #eaeaea; }
-
-#content-inner {
-  padding: 2em; }
+#app-header h2,
+#app-content h2 {
+  vertical-align: middle;
+  display: inline;
+  margin-right: 10px; }

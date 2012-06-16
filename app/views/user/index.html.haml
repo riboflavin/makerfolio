@@ -3,6 +3,14 @@
 - content_for :js do 
  = include_javascripts :all
 
-#notice
+ #notice
  #app
 
+  #app-header.well
+   %h2= current_user
+
+  #app-content.well
+   #app-content-header
+    %h2 Projects
+    %button.btn.btn-primary Add Project
+   #app-content-content

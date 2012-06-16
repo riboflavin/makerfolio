@@ -1,4 +1,5 @@
-App.Views.Project.Index = Backbone.View.extend({
+if (!App.Views.User || typeof App.Views.User === "undefined") App.Views.User = {}
+App.Views.User.Index = Backbone.View.extend({
     initialize: function() {
         this.documents = this.options.documents;
         this.render();

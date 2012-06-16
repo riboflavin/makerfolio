@@ -1,4 +1,5 @@
-App.Views.Project.Edit = Backbone.View.extend({
+if (!App.Views.User || typeof App.Views.User === "undefined") App.Views.User = {}
+App.Views.User.Edit = Backbone.View.extend({
     events: {
         "submit form": "save"
     },

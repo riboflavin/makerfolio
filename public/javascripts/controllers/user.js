@@ -1,16 +1,15 @@
-App.Controllers.Projects = Backbone.Router.extend({
+App.Controllers.Users = Backbone.Router.extend({
     routes: {
-        ":username/new":            "create",
-        ":username/:id":            "index",
-        ":username/:id/edit":         "edit",
-        ":username/:id/delete":         "delete"
+        ":username": "index",
+        ":username/edit": "update"
     },
     
     create: function() {
         new App.Views.Project.Edit({ model: new Project() });
     },
 
-    index: function(username, id) {
+    index: function(username) {
+        alert('x');
         var documents = new App.Collections.Documents();
         documents.fetch({
             success: function() {

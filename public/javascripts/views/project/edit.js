@@ -1,3 +1,4 @@
+if (!App.Views.Project || typeof App.Views.Project === "undefined") App.Views.Project = {}
 App.Views.Project.Edit = Backbone.View.extend({
     events: {
         "submit form": "save"

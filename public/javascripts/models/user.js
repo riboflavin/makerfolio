@@ -1,4 +1,4 @@
-var Project = Backbone.Model.extend({
+var User = Backbone.Model.extend({
 
         defaults: {
             name: '',

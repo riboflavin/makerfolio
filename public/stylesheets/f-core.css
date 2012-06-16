@@ -1,57 +1,61 @@
 /*
- * #93d050 green
- */
-.k-shadow {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); }
+Syntax error: Invalid CSS after "...:#777,font-size": expected ";", was ": 14px; }"
+        on line 1 of J:/My Dropbox/Desktop/Git/makerfolio/public/stylesheets/f-core.scss
 
-.k-shadow-big {
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.5); }
+1: html { height:100%;background:#777,font-size: 14px; }
+2: 
+3: body { background-color:transparent; }
+4: 
+5: /* Messages */
+6: .k-message { position:fixed;top:40px;right:0;left:0;width:640px;margin:0 auto; z-index: 2; }
 
-.k-corner-all {
-  border-radius: 6px; }
-
-.k-corner-right {
-  border-radius: 0 6px 6px 0; }
-
-.error {
-  border-color: #ee5f5b;
-  color: #b94a48; }
-
-.floatleft {
-  float: left; }
-
-.bold {
-  font-weight: bold; }
-
-.smalltext {
-  font-size: 10px; }
-
-.cursor-pointer {
-  cursor: pointer; }
-
-#modal-backdrop {
-  display: none;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 25;
-  background-color: gray;
-  opacity: .5;
-  height: 100%;
-  width: 100%; }
-
-#kitify-navbar-logo {
-  margin-right: 6px; }
-
-@font-face {
-  font-family: 'LobsterRegular';
-  src: url("fonts/Lobster_1.3-webfont.eot");
-  src: url("fonts/Lobster_1.3-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/Lobster_1.3-webfont.woff") format("woff"), url("fonts/Lobster_1.3-webfont.ttf") format("truetype"), url("fonts/Lobster_1.3-webfont.svg#Lobster13Regular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-html, .basefont {
-  font-size: 14px; }
-
-.k-scriptfont {
-  font-family: 'LobsterRegular',Trebuchet MS,Arial,Sans-serif; }
+Backtrace:
+J:/My Dropbox/Desktop/Git/makerfolio/public/stylesheets/f-core.scss:1
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/scss/parser.rb:1010:in `expected'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/scss/parser.rb:956:in `expected'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/scss/parser.rb:951:in `tok!'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/scss/parser.rb:513:in `declaration_or_ruleset'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/scss/parser.rb:994:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/scss/parser.rb:994:in `rethrow'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/scss/parser.rb:519:in `declaration_or_ruleset'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/scss/parser.rb:481:in `block_child'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/scss/parser.rb:473:in `block_contents'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/scss/parser.rb:462:in `block'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/scss/parser.rb:456:in `ruleset'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/scss/parser.rb:480:in `block_child'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/scss/parser.rb:470:in `block_contents'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/scss/parser.rb:58:in `stylesheet'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/scss/parser.rb:27:in `parse'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/engine.rb:326:in `_to_tree'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/engine.rb:299:in `_render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/engine.rb:246:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/plugin/compiler.rb:340:in `update_stylesheet'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/plugin/compiler.rb:202:in `update_stylesheets'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/plugin/compiler.rb:200:in `each'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/plugin/compiler.rb:200:in `update_stylesheets'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/plugin/compiler.rb:298:in `watch'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/multi_listener.rb:86:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/multi_listener.rb:86:in `on_change'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/multi_listener.rb:95:in `initialize_adapter'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/adapters/polling.rb:55:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/adapters/polling.rb:55:in `poll'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/adapters/polling.rb:31:in `start'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/adapters/polling.rb:31:in `initialize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/adapters/polling.rb:31:in `new'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/adapters/polling.rb:31:in `start'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/multi_listener.rb:44:in `start'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/plugin/compiler.rb:306:in `watch'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/plugin.rb:107:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/plugin.rb:107:in `method_missing'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/exec.rb:431:in `watch_or_update'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/exec.rb:302:in `process_result'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/exec.rb:41:in `parse'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/exec.rb:21:in `parse!'
+C:/Ruby187/lib/ruby/gems/1.8/gems/sass-3.1.18/bin/sass:8
+C:/Ruby187/bin/sass:19:in `load'
+C:/Ruby187/bin/sass:19
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid CSS after \"...:#777,font-size\": expected \";\", was \": 14px; }\"\A         on line 1 of J:/My Dropbox/Desktop/Git/makerfolio/public/stylesheets/f-core.scss\A \A 1: html { height:100%;background:#777,font-size: 14px; }\A 2: \A 3: body { background-color:transparent; }\A 4: \A 5: /* Messages */\A 6: .k-message { position:fixed;top:40px;right:0;left:0;width:640px;margin:0 auto; z-index: 2; }"; }

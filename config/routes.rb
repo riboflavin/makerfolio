@@ -5,7 +5,7 @@ Kitify::Application.routes.draw do
 
   # users
   get "/:username/(:format)" => "user#index"
-  put "/:username/" => "user#update"
+  put "/:username/edit" => "user#update"
 
   # projects
   get "/:username/new" => "project#create"
@@ -16,7 +16,7 @@ Kitify::Application.routes.draw do
   # attachments
   get "/:username/:project/attachments" => "attachment#index"
   get "/:username/:project/attachments/:id" => "attachment#index"
-  post "/:username/:project/attachments" => "attachment#new"
+  post "/:username/:project/attachments/new" => "attachment#new"
   delete "/:username/:project/attachments/:id/delete" => "attachment#destroy"
 
   # more or less static content

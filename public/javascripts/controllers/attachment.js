@@ -1,8 +1,9 @@
-App.Controllers.Attachments = Backbone.Controller.extend({
+App.Controllers.Attachments = Backbone.Router.extend({
     routes: {
-        "documents/:id":            "edit",
-        "":                         "index",
-        "new":                      "newDoc"
+        ":username/:project/attachments": "index",
+        ":username/:project/attachments/:id": "index",
+        ":username/:project/attachments/new": "new",
+        ":username/:project/attachments/:id/delete": "delete"
     },
     
     edit: function(id) {
