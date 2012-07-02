@@ -12,11 +12,9 @@ before_filter :authenticate_user!
       @projects = @user.projects.all
     end
 
-    case params[:format]
-    when 'json'
-      render :json => @projects
-    else
-      render 'index'
+    respond_to do |format|
+    format.json {render :json => @projects}
+    format.any {render 'index'}
     end
   end
     

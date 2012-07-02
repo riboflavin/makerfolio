@@ -1,7 +1,9 @@
+<% console.log(collection.models); %>
+<% username = $('#app-content-content').data('username'); %>
 <% if(collection.models.length > 0) { %>
-    <h3><a href='#new'>Create New</a></h3><ul>
-    <% collection.each(function(item) { %>
-        <li><a href='#documents/<%= item.id %>'><%= item.escape('title') %></a></li>
+    <ul>
+    <% collection.each(function(item) { console.log(item); %>
+        <li><a href='<%= username %>/projects/<%= item.attributes._id %>' target='_blank'><%= item.attributes._id %></a></li>
     <% }); %>
     </ul>
 <% } else { %>

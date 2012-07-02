@@ -1,6 +1,6 @@
 App.Controllers.Users = Backbone.Router.extend({
     routes: {
-        ":username": "index",
+        ":username/": "index",
         ":username/edit": "update"
     },
     
@@ -9,11 +9,13 @@ App.Controllers.Users = Backbone.Router.extend({
     },
 
     index: function(username) {
-        alert('x');
-        var documents = new App.Collections.Documents();
-        documents.fetch({
+        $('#app-content-content').data('username',username);
+
+        var projects = new App.Collections.Projects();
+        projects.url = '/' + username + '/json';
+        projects.fetch({
             success: function() {
-                new App.Views.Project.Index({ collection: documents });
+                new App.Views.Project.Index({ collection: projects });
             },
             error: function() {
                 new Error({ message: "Error loading documents." });

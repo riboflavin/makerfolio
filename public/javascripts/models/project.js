@@ -7,6 +7,6 @@ var Project = Backbone.Model.extend({
         },
 
         initialize: function(){
-            alert("Welcome to this world");
+            //alert("Welcome to this world");
         }
 });

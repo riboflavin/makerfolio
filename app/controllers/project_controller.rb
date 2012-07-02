@@ -2,7 +2,7 @@ class ProjectController < ApplicationController
 before_filter :authenticate_user!
 
   def index
-    render :json => Project.all(:user => :username)
+    render 'index'
   end
   
   def show

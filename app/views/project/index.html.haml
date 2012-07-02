@@ -1,20 +1,19 @@
-<% content_for :css do %>
-<%= include_stylesheets :all, :kit, :media => "all" %>
-<% end %>
+- content_for :css do 
+ = include_stylesheets :all
+- content_for :js do 
+ = include_javascripts :all
 
-#container
- #content.container 
-  #content-inner.k-shadow-big  
+ #notice
+ #app
 
-   #notice
-    #app
+  #app-header.well
+   %h2= current_user
 
-<% content_for :js do %>
-<%= include_javascripts :all, :kit %>
+  #app-content.well
+   #app-content-header
+    %h2 Projects
+    %button.btn.btn-primary Add Project
+   #app-content-content
 
-<script>
-    $(function() {
-        App.init();
-    });
-</script>
-<% end %>
+//why is the application getting all.jst?
+//set this up as a project page

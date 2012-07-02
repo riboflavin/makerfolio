@@ -6,7 +6,7 @@ var App = {
         new App.Controllers.Projects();
         new App.Controllers.Attachments();
         new App.Controllers.Users();
-        Backbone.history.start();
+        Backbone.history.start({pushState: true});
     }
 };
 
